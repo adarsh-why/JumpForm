@@ -17,11 +17,11 @@ var sliceData = function (data) {
 };
 
 var showQuestion = function (que, qid) {
-    $qBody = $('<div class="'+qid+'">'+que+'<div class="'+qid+'-answer"></div></div>').appendTo('#question');
+    $qBody = $('<div class="'+qid+'">'+que+'<div class="'+qid+'-answer"></div></div><br><br>').appendTo('#question');
 };
 
 var showOptions = function (ans, qid) {
     for (item in ans) {
-        $qBody.find('.'+qid+'-answer').append('<div class="'+qid+'-'+ans[item]+'">'+ans[item]+'</div>');
+       $qBody.find('.'+qid+'-answer').append('<div class="'+qid+'-'+ans[item]+'"><input type="radio" id="'+qid+'_ans_'+item+'"value = '+item+'>'+ans[item]+'</div>');
     }
 };
