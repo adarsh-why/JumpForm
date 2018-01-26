@@ -1,7 +1,8 @@
 (ns jump-form.core
   (:gen-class)
   (:require [jump-form.handler :refer [handle-form
-                                       handle-send-json]])
+                                       handle-send-json
+                                       handle-results]])
   (:require [ring.adapter.jetty :as jetty]
             [ring.middleware.reload :refer [wrap-reload]]
             [ring.middleware.params :refer [wrap-params]]
@@ -14,6 +15,7 @@
   (GET "/:uuid" [] handle-form)
   (GET "/request" [] handle-dump)
   (GET "/get-json/:uuid" [] handle-send-json)
+  (GET "/get-results/:uuid" [] handle-results)
   (not-found "Page not found."))
 
 (defn wrap-server [hdlr]

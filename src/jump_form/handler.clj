@@ -11,3 +11,10 @@
     {:status 200
      :headers {}
      :body (slurp "test/test.json")}))
+
+(defn handle-results [req]
+  (let [uuid  (:uuid (:route-params req))
+        k (prn uuid)]
+    {:status 200
+     :headers {}
+     :body (slurp "test/results.json")}))
