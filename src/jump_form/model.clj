@@ -12,15 +12,20 @@
 
 ;;Get/Set Helper Redis Functions---------------
 
-(defn set-data [k v]
-  (wcar server-connection (car/set k v)))
-
-(defn get-data [k]
-  (wcar server-connection
-        (car/get k)))
+(defmacro wcar* [& body] `(car/wcar server-connection ~@body))
 
 ;; Form DB----------------------
 
+(defn add-form [form-json]
+  (wcar* (car/hset "form" (generate-uuid) form-json)))
 
+(defn get-form [uuid]
+  (wcar* (car/hget "form" uuid)))
 
 ;; Results DB--------------------
+
+(defn add-results [uuid results-json]
+  (wcar* (car/hset "results" uuid results-json)))
+
+(defn get-results [uuid]
+  (wcar* (car/hget "results" uuid)))

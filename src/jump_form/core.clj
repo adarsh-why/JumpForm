@@ -2,7 +2,8 @@
   (:gen-class)
   (:require [jump-form.handler :refer [handle-form
                                        handle-send-json
-                                       handle-results]])
+                                       handle-results]]
+            [jump-form.model :as model])
   (:require [ring.adapter.jetty :as jetty]
             [ring.middleware.reload :refer [wrap-reload]]
             [ring.middleware.params :refer [wrap-params]]
