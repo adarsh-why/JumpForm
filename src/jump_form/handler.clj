@@ -6,7 +6,7 @@
    :headers {}
    :body (slurp "resources/static/form.html")})
 
-(defn handle-form [req]
+(defn handle-builder [req]
   {:status 200
    :headers {}
    :body (slurp "resources/static/builder.html")})
@@ -24,3 +24,15 @@
     {:status 200
      :headers {}
      :body (t/get-results uuid)}))
+
+(defn handle-post-results [req]
+  (let []
+    (println (get-in req :params))
+    (println req)
+    ))
+
+(defn handle-create-form [req]
+  (let []
+    (println (get-in req :params))
+    (println req)
+    ))
