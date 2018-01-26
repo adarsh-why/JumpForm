@@ -5,7 +5,9 @@ $(document).ready(function () {
     var element2 = document.createElement('h3')
     if (data.hasOwnProperty(item)) {
       element.innerHTML = data[item]['ques']
-      element2.innerHTML = data[item]['options'].join('<br>')
+      for(let x of data[item]['options']){
+        element2.innerHTML += "<input type=\"radio\"> "+ x +"<br>"
+      }
     }
     $('#questions').append(element)
     $('#questions').append(element2)
