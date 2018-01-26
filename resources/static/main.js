@@ -1,7 +1,13 @@
 $(document).ready(function () {
-    var data = {'q1': {'ques': 'What is your gender', 'options': ['Male', 'Female']}, 'q2': {'ques': 'What is your favourite icecream', 'options': ['Vanilla', 'Chocolate', 'Strawberry']}, 'q3': {'ques': 'Which laptop do you use', 'options': ['Apple', 'Lenovo', 'HP', 'Microsoft']}, 'q4': {'ques': 'What is your Favourite Language', 'options': ['JS', 'Ruby', 'Clojure', 'Python', 'Go']}, 'q5': {'ques': 'How many questions did you answer so far', 'options': [1, 2, 3, 4]}}
-    sliceData(data);
-})
+		var data  = getData();
+});
+
+var getData = function () {
+	var uuid = window.location.pathname.split( '/' )[1];
+  $.get("get-json/"+uuid, function(data) {
+  	sliceData(JSON.parse(data));
+	});
+};
 
 var sliceData = function (data) {
     for (item in data) {
