@@ -1,19 +1,16 @@
 (ns jump-form.core
   (:gen-class)
+  (:require [jump-form.handler :refer [handle-dummy-form]])
   (:require [ring.adapter.jetty :as jetty]
             [ring.middleware.reload :refer [wrap-reload]]
             [ring.middleware.params :refer [wrap-params]]
+            [ring.middleware.resource :refer [wrap-resource]]
             [compojure.core :refer [defroutes ANY GET POST PUT DELETE]]
             [compojure.route :refer [not-found]]
             [ring.handler.dump :refer [handle-dump]]))
 
-(defn hello [req]
-  {:status 200
-   :body "Hello!"
-   :headers {}})
-
 (defroutes routes
-  (GET "/" [] hello)
+  (GET "/form" [] handle-dummy-form)
   (GET "/request" [] handle-dump)
   (not-found "Page not found."))
 
@@ -23,8 +20,10 @@
 
 (def app
   (wrap-server
-    (wrap-params
-      routes)))
+    (wrap-resource
+      (wrap-params
+        routes)
+      "static")))
 
 (defn -main [port]
   (jetty/run-jetty app
