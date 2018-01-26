@@ -7,4 +7,6 @@
                  [ring "1.6.3"]]
   :main ^:skip-aot jump-form.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all}
+             :dev
+             {:main jump-form.core/-dev-main}})
