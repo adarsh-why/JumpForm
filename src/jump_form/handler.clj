@@ -1,4 +1,5 @@
-(ns jump-form.handler)
+(ns jump-form.handler
+  (:require [jump-form.model :as t]))
 
 (defn handle-form [req]
   {:status 200

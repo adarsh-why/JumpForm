@@ -6,7 +6,8 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [ring "1.6.3"]
                  [compojure "1.6.0"]
-                 [com.taoensso/carmine "2.17.0"]]
+                 [com.taoensso/carmine "2.17.0"]
+                 [org.clojure/data.json "0.2.6"]]
   :main ^:skip-aot jump-form.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}
