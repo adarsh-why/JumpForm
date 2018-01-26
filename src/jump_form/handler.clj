@@ -1,4 +1,5 @@
-(ns jump-form.handler)
+(ns jump-form.handler
+  (:require [jump-form.model :as t]))
 
 (defn handle-form [req]
   {:status 200
@@ -10,11 +11,11 @@
         k (prn uuid)]
     {:status 200
      :headers {}
-     :body (slurp "test/test.json")}))
+     :body (t/get-form uuid)}))
 
 (defn handle-results [req]
   (let [uuid  (:uuid (:route-params req))
         k (prn uuid)]
     {:status 200
      :headers {}
-     :body (slurp "test/results.json")}))
+     :body (t/get-results uuid)}))
