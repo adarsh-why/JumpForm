@@ -11,7 +11,7 @@
             [ring.handler.dump :refer [handle-dump]]))
 
 (defroutes routes
-  (GET "/form/:uuid" [] handle-form)
+  (GET "/:uuid" [] handle-form)
   (GET "/request" [] handle-dump)
   (GET "/get-json/:uuid" [] handle-send-json)
   (not-found "Page not found."))
