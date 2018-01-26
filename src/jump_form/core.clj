@@ -2,7 +2,8 @@
   (:gen-class)
   (:require [jump-form.handler :refer [handle-form
                                        handle-send-json
-                                       handle-results]]
+                                       handle-results
+                                       handle-builder]]
             [jump-form.model :as model])
   (:require [ring.adapter.jetty :as jetty]
             [ring.middleware.reload :refer [wrap-reload]]
@@ -13,6 +14,7 @@
             [ring.handler.dump :refer [handle-dump]]))
 
 (defroutes routes
+  (GET "/builder" [] handle-builder)
   (GET "/:uuid" [] handle-form)
   (GET "/request" [] handle-dump)
   (GET "/get-json/:uuid" [] handle-send-json)
