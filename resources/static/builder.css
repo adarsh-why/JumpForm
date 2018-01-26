@@ -1,0 +1,16 @@
+body {
+  padding: 0;
+  margin: 10px 0;
+  background: #f2f2f2 url('images/beige.png');
+}
+
+.setDataWrap {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form-wrap.form-builder .empty .frmb {
+	height: 500px;
+	width: 90%;
+	margin-left: 45px;
+}
