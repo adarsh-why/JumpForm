@@ -3,7 +3,7 @@
 (defn handle-form [req]
   {:status 200
    :headers {}
-   :body (slurp "resources/static/index.html")})
+   :body (slurp "resources/static/form.html")})
 
 (defn handle-send-json [req]
   (let [uuid  (:uuid (:route-params req))
