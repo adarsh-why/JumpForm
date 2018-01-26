@@ -1,0 +1,73 @@
+{
+  "q1": {
+    "ques": "What is your gender",
+    "options": [
+      "Male",
+      "Female"
+    ],
+    "results": [
+      3,
+      5
+    ]
+  },
+  "q2": {
+    "ques": "What is your favourite icecream",
+    "options": [
+      "Vanilla",
+      "Chocolate",
+      "Strawberry"
+    ],
+    "results": [
+      2,
+      0,
+      4
+    ]
+  },
+  "q3": {
+    "ques": "Which laptop do you use",
+    "options": [
+      "Apple",
+      "Lenovo",
+      "HP",
+      "Microsoft"
+    ],
+    "results": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "q4": {
+    "ques": "What is your Favourite Language",
+    "options": [
+      "JS",
+      "Ruby",
+      "Clojure",
+      "Python",
+      "Go"
+    ],
+    "results": [
+      4,
+      1,
+      2,
+      1,
+      0
+    ]
+  },
+  "q5": {
+    "ques": "How many questions did you answer so far",
+    "options": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "results": [
+      0,
+      0,
+      1,
+      7
+    ]
+  }
+}
