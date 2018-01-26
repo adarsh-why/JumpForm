@@ -16,8 +16,8 @@
 
 ;; Form DB----------------------
 
-(defn add-form [form-json]
-  (wcar* (car/hset "form" (generate-uuid) form-json)))
+(defn add-form [uuid form-json]
+  (wcar* (car/hset "form" uuid form-json)))
 
 (defn get-form [uuid]
   (wcar* (car/hget "form" uuid)))
@@ -29,3 +29,6 @@
 
 (defn get-results [uuid]
   (wcar* (car/hget "results" uuid)))
+
+(add-form "001" (slurp "test/test.json"))
+(add-results "001" (slurp "test/results.json"))
