@@ -4,7 +4,11 @@ FIXME: description
 
 ## Installation
 
+#### Software requirements :
 
+- [Git](https://git-scm.com/)
+- [Java](https://java.com/en/download/)
+- [Leiningen](https://leiningen.org/)
 
 ## Usage
 
@@ -17,7 +21,7 @@ FIXME: description
 
 ### Bugs
 
-...
+Please file any issues you find on github with minimal sample code that demonstrates the problem.
 
 
 
