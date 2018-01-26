@@ -1,2 +1,2 @@
-### Adarsh Chandran
+### Adarsh
 ### Abhishek Shingane
