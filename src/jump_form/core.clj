@@ -1,6 +1,7 @@
 (ns jump-form.core
   (:gen-class)
-  (:require [jump-form.handler :refer [handle-dummy-form]])
+  (:require [jump-form.handler :refer [handle-form
+                                       handle-send-json]])
   (:require [ring.adapter.jetty :as jetty]
             [ring.middleware.reload :refer [wrap-reload]]
             [ring.middleware.params :refer [wrap-params]]
@@ -10,8 +11,9 @@
             [ring.handler.dump :refer [handle-dump]]))
 
 (defroutes routes
-  (GET "/form" [] handle-dummy-form)
+  (GET "/form/:uuid" [] handle-form)
   (GET "/request" [] handle-dump)
+  (GET "/get-json/:uuid" [] handle-send-json)
   (not-found "Page not found."))
 
 (defn wrap-server [hdlr]
