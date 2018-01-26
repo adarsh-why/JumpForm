@@ -30,7 +30,7 @@ function submit(){
 	var uuid = window.location.pathname.split( '/' )[1];
     let answers = []
 		var radio
-		var q_count = 0
+		var q_count = 1
 		var nxtQ = document.getElementById("q"+q_count)
     while(nxtQ != undefined) {
 			var op_count = 0
@@ -51,7 +51,7 @@ function submit(){
 		console.log(answers);
 		console.log('uuid', uuid);
 		console.log("json ",JSON.stringify(answers));
-		$.post("post-result/"+uuid,JSON.stringify(answers),function(data,status){
+		$.post("post-results/"+uuid,JSON.stringify(answers),function(data,status){
             alert("Data: " + data + "\nStatus: " + status);
         });
 }
