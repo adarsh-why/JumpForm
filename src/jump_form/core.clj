@@ -9,13 +9,7 @@
             [compojure.route :refer [not-found]]
             [ring.handler.dump :refer [handle-dump]]))
 
-(defn hello [req]
-  {:status 200
-   :body "Hello!"
-   :headers {}})
-
 (defroutes routes
-  (GET "/" [] hello)
   (GET "/form" [] handle-dummy-form)
   (GET "/request" [] handle-dump)
   (not-found "Page not found."))
