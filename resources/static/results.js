@@ -9,13 +9,6 @@ var getData = function () {
   })
 }
 
-// {"q1":{"ques":"What is your gender","options":["Male","Female"],"results":[3,5]},
-// "q2":{"ques":"What is your favourite icecream","options":["Vanilla","Chocolate","Strawberry"],"results":[2,0,4]},
-// "q3":{"ques":"Which laptop do you use","options":["Apple","Lenovo","HP","Microsoft"],"results":[2,2,2,2]},
-// "q4":{"ques":"What is your Favourite Language","options":["JS","Ruby","Clojure","Python","Go"],"results":[4,1,2,1,0]},
-// "q5":{"ques":"How many questions did you answer so far","options":[1,2,3,4],"results":[0,0,1,7]}}
-// window.console.log(data)
-
 var sliceData = function (data) {
   for (item in data) {
     createContainer(item)
@@ -30,7 +23,8 @@ var showQuestion = function (que, qid) {
 
 var showOptions = function (ans, qid, rcount) {
   for (item in ans) {
-    $qBody = $('<div class="' + qid + '-' + ans[item] + '">' + ans[item] + ' ' + rcount[item] + '</div>').appendTo('.' + 'container' + qid.substring(1))
+    $qBody = $('<div class="' + qid + '-' + ans[item] + '" id= "ans">' + ans[item] + ' ' + rcount[item] + '</div>').appendTo('.' + 'container' + qid.substring(1))
+    $qBody = $('<div class="progress-bar" id= "bars" role="progressbar1" aria-valuenow="70"aria-valuemin="0" aria-valuemax="100" style="width:70%">70%' + '</div>').appendTo('.' + qid + '-' + ans[item])
   }
 }
 

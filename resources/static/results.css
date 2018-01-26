@@ -3,8 +3,18 @@ body {background-color: #FAFAFA;}
 border-radius: 5px;
 width: 90%;
 padding:2%;
+overflow:auto;
 }
 
 .progress-bar {
 	position: relative;
+}
+
+#bars {
+	position: relative;
+	padding:0.25em;
+}
+
+#ans {
+	padding:0.25em;
 }
