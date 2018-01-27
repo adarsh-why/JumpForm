@@ -25,7 +25,7 @@
   (GET "/:uuid" [] handle-form)
   (GET "/results/:uuid" [] handle-results-page)
   (GET "/request" [] handle-dump)
-  (GET "get-json/:uuid" [] handle-send-json)
+  (GET "/get-json/:uuid" [] handle-send-json)
   (GET "/get-results/:uuid" [] handle-results)
   (POST "/create-form" [] handle-create-form)
   (POST "/post-results/:uuid" [] handle-post-results)
