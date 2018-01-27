@@ -37,8 +37,24 @@
      :body (t/get-results uuid)}))
 
 ;;--------------------Helpers------------
+
+;;-------Under Construction-----------
+
+(defn add-result-zeros [form-item option-count]
+  )
+
 (defn add-initial-results [uuid form-data]
-  (println form-data))
+  (let [test-form (json/read-str (slurp "test/test.json"))
+        test-form-vec (into [] test-form)
+        get-options (map  #(get-in % [1 "options"]) test-form-vec)
+        options-count (map count get-options)
+        results-form-vec (map add-result-zeros
+                              test-form-vec options-count)]
+    ;;(println test-form)
+    ;; (println test-form-vec)
+    ;; (println get-options)
+    ;;(println options-count)
+    ))
 
 
 (defn update-results [uuid result-data]

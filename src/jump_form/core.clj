@@ -25,7 +25,7 @@
   (GET "/:uuid" [] handle-form)
   (GET "/results/:uuid" [] handle-results-page)
   (GET "/request" [] handle-dump)
-  (GET "/get-json/:uuid" [] handle-send-json)
+  (GET "get-json/:uuid" [] handle-send-json)
   (GET "/get-results/:uuid" [] handle-results)
   (POST "/create-form" [] handle-create-form)
   (POST "/post-results/:uuid" [] handle-post-results)
@@ -34,7 +34,6 @@
 (defn wrap-server [hdlr]
   (fn [req]
     (assoc-in (hdlr req) [:headers "Server"] "jump-form")))
-
 
 (defn wrap-body-string [handler]
   (fn [request]
