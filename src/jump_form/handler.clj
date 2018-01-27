@@ -35,5 +35,11 @@
 (defn handle-create-form [req]
   (let [body-str (get req :body-str)
         body (json/read-str body-str)
-        form-data (get body "formData")]
-    (println body-str form-data)))
+        form-data (get body "formData")
+        json-form-data (json/write-str form-data)
+        n-uuid (t/generate-uuid)
+        add-form (t/add-form n-uuid json-form-data)
+        ]
+    {:status 200
+     :headers {}
+     :body (str "localhost:8000/" n-uuid)}))
