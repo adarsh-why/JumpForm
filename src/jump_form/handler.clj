@@ -27,9 +27,13 @@
      :body (t/get-results uuid)}))
 
 (defn handle-post-results [req]
-  (let [body-str  (get req :body-str)]
-    (println body-str)))
+  (let [body-str  (get req :body-str)
+        body (json/read-str body-str)
+        results (get body "answers")]
+    (println body-str results)))
 
 (defn handle-create-form [req]
-  (let [body-str (get req :body-str)]
-    (println body-str)))
+  (let [body-str (get req :body-str)
+        body (json/read-str body-str)
+        form-data (get body "formData")]
+    (println body-str form-data)))

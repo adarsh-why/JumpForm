@@ -24,7 +24,7 @@
   (GET "/get-json/:uuid" [] handle-send-json)
   (GET "/get-results/:uuid" [] handle-results)
   (POST "/create-form" [] handle-create-form)
-  (POST "/post-results/:uuid" {body :body} handle-post-results)
+  (POST "/post-results/:uuid" [] handle-post-results)
   (not-found "Page not found."))
 
 (defn wrap-server [hdlr]
@@ -44,13 +44,12 @@
       (handler (assoc request :body-str body-str)))))
 
 (def app
-  (print-req
-    (wrap-body-string
-      (wrap-server
-        (wrap-resource
-          (wrap-params
-            routes)
-          "static")))))
+  (wrap-body-string
+    (wrap-server
+      (wrap-resource
+        (wrap-params
+          routes)
+        "static"))))
 
 (defn -main [port]
   (jetty/run-jetty app
