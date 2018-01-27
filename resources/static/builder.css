@@ -27,7 +27,7 @@ body {
   margin: 25px;
 }
 
-input {
+input#urls {
   width: 63%;
 }
 
