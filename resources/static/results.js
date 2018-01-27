@@ -9,6 +9,7 @@ var getData = function () {
   })
 }
 
+// Instantiate blocks questions, answers etc.
 var sliceData = function (data) {
   dashboardBuilder(data, '.col-sm-4')
   for (item in data) {
@@ -18,10 +19,12 @@ var sliceData = function (data) {
   }
 }
 
+// Question
 var showQuestion = function (que, qid) {
   $qBody = $('<div class="' + 'question' + qid.substring(1) + '"id="q' + '">' + 'Question ' + qid.substring(1) + ': ' + que + '</div>').appendTo('.' + 'container' + qid.substring(1))
 }
 
+// Options and progress of responses
 var showOptions = function (ans, qid, rcount) {
   let sum = rcount.reduce((a, b) => { return a + b })
   for (item in ans) {
@@ -32,10 +35,12 @@ var showOptions = function (ans, qid, rcount) {
   }
 }
 
+// Builds block to accomodate question and answer
 var createContainer = function (qid, appender) {
   $qBody = $('<div class="' + 'container' + qid.substring(1) + '"id="cont' + '">').appendTo(appender)
 }
 
+// Builds Result Summary Container
 var dashboardBuilder = function (argument, appender) {
   let max = 0
   for (let x in argument) {
@@ -46,4 +51,21 @@ var dashboardBuilder = function (argument, appender) {
 
   $qBody = $('<div class="probCount " id= "pC">' + 'Number of questions: ' + Object.keys(argument).length + '</div>').appendTo(appender)
   $qBody = $('<div class="ansCount " id= "aC">' + 'Number of responses: ' + max + '</div>').appendTo(appender)
+}
+
+// scroll to the top
+window.onscroll = function () { scrollFunction() }
+
+function scrollFunction () {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById('myBtn').style.display = 'block'
+  } else {
+    document.getElementById('myBtn').style.display = 'none'
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction () {
+  document.body.scrollTop = 0 // For Safari
+  document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
 }
