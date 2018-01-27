@@ -5,6 +5,7 @@
                                        handle-results
                                        handle-builder
                                        handle-home
+                                       handle-results-page
                                        handle-create-form
                                        handle-post-results]]
             [jump-form.model :as model])
@@ -22,6 +23,7 @@
   (GET "/" [] handle-home)
   (GET "/builder" [] handle-builder)
   (GET "/:uuid" [] handle-form)
+  (GET "/results/:uuid" [] handle-results-page)
   (GET "/request" [] handle-dump)
   (GET "/get-json/:uuid" [] handle-send-json)
   (GET "/get-results/:uuid" [] handle-results)
@@ -32,12 +34,6 @@
 (defn wrap-server [hdlr]
   (fn [req]
     (assoc-in (hdlr req) [:headers "Server"] "jump-form")))
-
-(defn print-req [hdlr]
-  (fn [req]
-    (do
-      (println req)
-      (hdlr req))))
 
 
 (defn wrap-body-string [handler]

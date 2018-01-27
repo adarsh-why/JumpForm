@@ -7,6 +7,11 @@
    :headers {}
    :body (slurp "resources/static/form.html")})
 
+(defn handle-results-page [req]
+  {:status 200
+   :headers {}
+   :body (slurp "resources/static/results.html")})
+
 (defn handle-builder [req]
   {:status 200
    :headers {}
@@ -32,15 +37,21 @@
      :body (t/get-results uuid)}))
 
 ;;--------------------Helpers------------
-(defn add-initial-results [uuid form-data])
+(defn add-initial-results [uuid form-data]
+  (println form-data))
 
+
+(defn update-results [uuid result-data]
+  )
 ;;-------------------------------
 
 (defn handle-post-results [req]
-  (let [body-str  (get req :body-str)
+  (let [uuid  (:uuid (:route-params req))
+        body-str  (get req :body-str)
         body (json/read-str body-str)
-        results (get body "answers")]
-    (println body-str results)))
+        results-data (get body "answers")
+        update-results (update-results uuid results-data)]
+    (println body-str results-data)))
 
 (defn handle-create-form [req]
   (let [body-str (get req :body-str)
@@ -48,7 +59,8 @@
         form-data (get body "formData")
         json-form-data (json/write-str form-data)
         n-uuid (t/generate-uuid)
-        add-form (t/add-form n-uuid json-form-data)]
+        add-form (t/add-form n-uuid json-form-data)
+        add-initial-results (add-initial-results n-uuid form-data)]
     {:status 200
      :headers {}
      :body (str "localhost:8000/" n-uuid)}))
