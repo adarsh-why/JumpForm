@@ -1,5 +1,6 @@
 (ns jump-form.handler
-  (:require [jump-form.model :as t]))
+  (:require [jump-form.model :as t]
+            [clojure.data.json :as json]))
 
 (defn handle-form [req]
   {:status 200
@@ -26,13 +27,9 @@
      :body (t/get-results uuid)}))
 
 (defn handle-post-results [req]
-  (let []
-    (println (get-in req :params))
-    (println req)
-    ))
+  (let [body-str  (get req :body-str)]
+    (println body-str)))
 
 (defn handle-create-form [req]
-  (let []
-    (println (get-in req :params))
-    (println req)
-    ))
+  (let [body-str (get req :body-str)]
+    (println body-str)))

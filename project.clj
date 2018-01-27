@@ -7,7 +7,8 @@
                  [ring "1.6.3"]
                  [compojure "1.6.0"]
                  [com.taoensso/carmine "2.17.0"]
-                 [org.clojure/data.json "0.2.6"]]
+                 [org.clojure/data.json "0.2.6"]
+                 [ring/ring-json "0.4.0"]]
   :main ^:skip-aot jump-form.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}

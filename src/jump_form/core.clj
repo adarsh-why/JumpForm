@@ -13,7 +13,9 @@
             [ring.middleware.resource :refer [wrap-resource]]
             [compojure.core :refer [defroutes ANY GET POST PUT DELETE]]
             [compojure.route :refer [not-found]]
-            [ring.handler.dump :refer [handle-dump]]))
+            [ring.handler.dump :refer [handle-dump]]
+            [ring.util.response :refer [response]]
+            [ring.util.request :refer [body-string]]))
 
 (defroutes routes
   (GET "/builder" [] handle-builder)
@@ -22,19 +24,33 @@
   (GET "/get-json/:uuid" [] handle-send-json)
   (GET "/get-results/:uuid" [] handle-results)
   (POST "/create-form" [] handle-create-form)
-  (POST "/post-results/:uuid" [] handle-post-results)
+  (POST "/post-results/:uuid" {body :body} handle-post-results)
   (not-found "Page not found."))
 
 (defn wrap-server [hdlr]
   (fn [req]
     (assoc-in (hdlr req) [:headers "Server"] "jump-form")))
 
+(defn print-req [hdlr]
+  (fn [req]
+    (do
+      (println req)
+      (hdlr req))))
+
+
+(defn wrap-body-string [handler]
+  (fn [request]
+    (let [body-str (body-string request)]
+      (handler (assoc request :body-str body-str)))))
+
 (def app
-  (wrap-server
-    (wrap-resource
-      (wrap-params
-        routes)
-      "static")))
+  (print-req
+    (wrap-body-string
+      (wrap-server
+        (wrap-resource
+          (wrap-params
+            routes)
+          "static")))))
 
 (defn -main [port]
   (jetty/run-jetty app
