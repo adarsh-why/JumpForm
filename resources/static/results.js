@@ -44,6 +44,6 @@ var dashboardBuilder = function (argument, appender) {
     }
   }
 
-  $qBody = $('<div class="probCount " id= "pC">' + 'Number of Questions: ' + Object.keys(argument).length + '</div>').appendTo(appender)
+  $qBody = $('<div class="probCount " id= "pC">' + 'Number of questions: ' + Object.keys(argument).length + '</div>').appendTo(appender)
   $qBody = $('<div class="ansCount " id= "aC">' + 'Number of responses: ' + max + '</div>').appendTo(appender)
 }
