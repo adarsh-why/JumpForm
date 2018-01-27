@@ -1,0 +1,55 @@
+body {
+  padding: 0;
+  margin: 10px 0;
+  background: #f2f2f2 url('images/beige.png');
+}
+
+.setDataWrap {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form-wrap.form-builder .empty .frmb {
+	height: 500px;
+	width: 90%;
+	margin-left: 45px;
+}
+
+.form-wrap.form-builder .stage-wrap {
+	margin-left: 100px;
+	position: relative;
+	float: left;
+	width: 60%;
+}
+
+.form-wrap.form-builder .frmb-control {
+    margin-left: -97px;
+    border-radius: 5px;
+    width: 75%;
+}
+
+.form-actions {
+	float: none !important;
+	margin-top: 15px !important;
+	width: 278px;
+    margin-left: -96px;
+}
+
+.get-data {
+	display: none !important;
+}
+
+.save-template {
+	content: '' !important;
+	background-color: #2185d0;
+    color: #fff !important;
+    font-size: 1rem !important;
+	width: 50%;
+}
+
+.clear-all {
+	background-color: #eb8239;
+    color: #fff !important;
+    font-size: 1rem !important;
+	width: 50%;
+}

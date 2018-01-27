@@ -2,7 +2,10 @@
   (:gen-class)
   (:require [jump-form.handler :refer [handle-form
                                        handle-send-json
-                                       handle-results]]
+                                       handle-results
+                                       handle-builder
+                                       handle-create-form
+                                       handle-post-results]]
             [jump-form.model :as model])
   (:require [ring.adapter.jetty :as jetty]
             [ring.middleware.reload :refer [wrap-reload]]
@@ -13,10 +16,13 @@
             [ring.handler.dump :refer [handle-dump]]))
 
 (defroutes routes
+  (GET "/builder" [] handle-builder)
   (GET "/:uuid" [] handle-form)
   (GET "/request" [] handle-dump)
   (GET "/get-json/:uuid" [] handle-send-json)
   (GET "/get-results/:uuid" [] handle-results)
+  (POST "/create-form" [] handle-create-form)
+  (POST "/post-results/:uuid" [] handle-post-results)
   (not-found "Page not found."))
 
 (defn wrap-server [hdlr]
