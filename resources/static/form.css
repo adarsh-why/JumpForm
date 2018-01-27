@@ -1,5 +1,5 @@
 body {
-	background-color: #FAFAFA;
+	background-color: #F1F8F9;
 font-family: 'Merriweather Sans', sans-serif;
 }
 
@@ -15,7 +15,7 @@ width: auto;
 padding:2%;
 margin:2%;
 overflow:auto;
-/*background-color:#FF6666; */
+background-color:#FAFAFA;
 }
 
 #question {
@@ -28,6 +28,7 @@ overflow:auto;
     overflow: hidden;
     text-align: center;
     margin-top: 2%;
+    pointer-events: none;
 }
 
 .topnav a {

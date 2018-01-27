@@ -55,6 +55,7 @@ overflow:auto;
     overflow: hidden;
     text-align: center;
     margin-top: 2%;
+    pointer-events: none;
 }
 
 .topnav a {
