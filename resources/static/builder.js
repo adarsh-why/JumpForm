@@ -49,14 +49,21 @@ var setOptions = function (options) {
 };
 
 var sendFormData = function (formData) {
-  console.log(111, formData);
-  console.log(222,JSON.stringify({formData}));
   $.ajax({
       url: "create-form",
       type: "POST",
       data: JSON.stringify({formData}),
       complete: function(formData,status){
-          alert("Data: " + JSON.stringify(formData) + "\nStatus: " + status);
+          showUrlBox(formData.responseText);
       },
   });
 };
+
+var showUrlBox = function (url) {
+  $('.link-box').css({'display': 'block'});
+  $("input:text").val(url);
+};
+
+var closeBox = function () {
+  $('.link-box').css({'display': 'none'});
+}

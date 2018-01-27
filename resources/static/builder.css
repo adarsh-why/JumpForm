@@ -4,6 +4,33 @@ body {
   background: #f2f2f2 url('images/beige.png');
 }
 
+.link-box {
+    display: none;
+    margin-top: 10%;
+    width: 600px;
+    height: 500px;
+    background-color: aliceblue;
+    margin-left: 30%;
+    z-index: 67;
+    position: fixed;
+}
+
+.url-link {
+  margin-top: 20%;
+  margin-left: 12%;
+}
+
+.close {
+  cursor: wait;
+  font-size: 36px;
+  float: right;
+  margin: 25px;
+}
+
+input {
+  width: 63%;
+}
+
 .setDataWrap {
   text-align: center;
   margin-bottom: 10px;
