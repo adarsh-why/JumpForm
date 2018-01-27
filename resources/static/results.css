@@ -54,12 +54,28 @@ overflow:auto;
 .topnav {
     overflow: hidden;
     text-align: center;
+    margin-top: 2%;
 }
 
 .topnav a {
     color: #3087E5;
     padding: 20px 24px;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 28px;
 
+}
+
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 12px; /* Place the button at the bottom of the page */
+    right: 12px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #3087E5; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 10px; /* Some padding */
+    border-radius: 5px; /* Rounded corners */
 }
