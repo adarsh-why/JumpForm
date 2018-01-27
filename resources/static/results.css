@@ -1,20 +1,65 @@
-body {background-color: #FAFAFA;}
-#cont {  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+body {background-color: #FAFAFA;
+font-family: 'Merriweather Sans', sans-serif;}
+
+h3 {
+text-align: left;
+}
+
+#cont {  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 border-radius: 5px;
-width: 90%;
+width: auto;
 padding:2%;
+margin:2%;
 overflow:auto;
 }
 
-.progress-bar {
-	position: relative;
+.col-sm-4{box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+border-radius: 5px;
+padding:2%;
+margin-top: 1.5%;
+margin-left: 4%;
+width: 350px;
+overflow:auto;
 }
 
-#bars {
-	position: relative;
-	padding:0.2em;
+.progress {
+	display: inline-block;
+	width: 100%;
+	color: #CAE6EB;
+	background: #F1F8F9;
+	/*float:left;*/
+}
+.progress-bar[aria-valuenow<="3"]{
+  min-width: 3%;
+}
+
+.progress-bar[aria-valuenow="0"] {
+  color: $text-color;
+  min-width: 3%;
+}
+
+#anstxt {
+	float: right;
+	display: inline-block;
+	margin-left: :10%;
 }
 
 #ans {
-	padding:0.2em;
+	float: left;
+	display: inline-block;
+	margin-right: :10%;
+	margin-top: 1%;
+}
+
+.topnav {
+    overflow: hidden;
+    text-align: center;
+}
+
+.topnav a {
+    color: #3087E5;
+    padding: 20px 24px;
+    text-decoration: none;
+    font-size: 24px;
+
 }
