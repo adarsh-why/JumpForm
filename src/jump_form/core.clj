@@ -4,6 +4,7 @@
                                        handle-send-json
                                        handle-results
                                        handle-builder
+                                       handle-home
                                        handle-create-form
                                        handle-post-results]]
             [jump-form.model :as model])
@@ -18,6 +19,7 @@
             [ring.util.request :refer [body-string]]))
 
 (defroutes routes
+  (GET "/" [] handle-home)
   (GET "/builder" [] handle-builder)
   (GET "/:uuid" [] handle-form)
   (GET "/request" [] handle-dump)
