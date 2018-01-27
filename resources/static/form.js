@@ -50,8 +50,8 @@ function submit(){
     }
 		console.log(answers);
 		console.log('uuid', uuid);
-		console.log("json ",JSON.stringify(answers));
-		$.post("post-results/"+uuid,JSON.stringify(answers),function(data,status){
-            alert("Data: " + data + "\nStatus: " + status);
-        });
+		var k = JSON.stringify({answers});
+		console.log(typeof(k));
+		console.log("json ",JSON.stringify({answers: answers}));
+		$.post("post-results/"+uuid,k,null);
 }
