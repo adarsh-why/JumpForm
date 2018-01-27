@@ -39,6 +39,7 @@ var setFormData = function (qId, qObj) {
   };
 };
 
+
 var setOptions = function (options) {
   array = [];
   for(item in options) {
@@ -48,11 +49,12 @@ var setOptions = function (options) {
 };
 
 var sendFormData = function (formData) {
+  console.log(111, formData);
+  console.log(222,JSON.stringify({formData}));
   $.ajax({
-      url: "create-form/",
+      url: "create-form",
       type: "POST",
-      data: JSON.stringify(formData),
-      contentType: "application/json",
+      data: JSON.stringify({formData}),
       complete: function(formData,status){
           alert("Data: " + JSON.stringify(formData) + "\nStatus: " + status);
       },
