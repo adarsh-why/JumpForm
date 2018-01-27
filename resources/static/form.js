@@ -45,6 +45,7 @@ function submit () {
       op_count++
       var nxtOp = document.getElementById('q' + q_count + '_ans_' + op_count)
     }
+<<<<<<< HEAD
     q_count++
     nxtQ = document.getElementById('q' + q_count)
   }
@@ -54,4 +55,12 @@ function submit () {
   $.post('post-results/' + uuid, JSON.stringify(answers), function (data, status) {
     alert('Data: ' + data + '\nStatus: ' + status)
   })
+=======
+		console.log(answers);
+		console.log('uuid', uuid);
+		var k = JSON.stringify({answers});
+		console.log(typeof(k));
+		console.log("json ",JSON.stringify({answers: answers}));
+		$.post("post-results/"+uuid,k,null);
+>>>>>>> 872480747ab4eca202aa1db68501630c7d64e470
 }
