@@ -4,7 +4,7 @@ $(document).ready(function () {
 
 var getData = function () {
   var uuid = window.location.pathname.split('/')[1]
-  $.get('get-results/' + '001', function (data) {
+  $.get('/get-results/' + '001', function (data) {
   	sliceData(JSON.parse(data))
   })
 }
